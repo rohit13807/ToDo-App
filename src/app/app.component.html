@@ -1,0 +1,19 @@
+<div>
+  <h2>Todo List</h2>
+  <form [formGroup]="todoForm" (ngSubmit)="addTodo()">
+    <input type="text" formControlName="name" matInput />
+    <button type="submit" color="accent" mat-flat-button>Add</button>
+  </form>
+
+
+  <ul>
+    @for (todo of todos(); track $index){
+    <li>
+      {{todo}}
+      <button (click)="removeTodo($index)">Remove</button>
+    </li>
+    }
+  </ul>
+</div>
+
+<router-outlet />
